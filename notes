@@ -1,4 +1,4 @@
-Notes Version 2
+Notes Version 3
 
 Use a "config.toml" to specify repos to pull and build from.
 Will probably have entries like:
@@ -12,16 +12,19 @@ always_approve = true
 username = "somebody"
 password_hash = "..."
 password_salt = "..."
+permissions = ["view_project"]
 [[user]]
 username = "another_person"
 password_hash = "..."
 password_salt = "..."
 otp_secret = "..."
-[[admin_user]]
+permissions = ["add_project", "view_project"]
+[[user]]
 username = "someone_else"
 password_hash = "..."
 password_salt = "..."
 otp_secret = "..."
+permissions = ["create_user", "create_admin", "add_project", "remove_project", "view_project"]
 
 The project should have a "/.simple_ci/" at HEAD. There should be a
 "/.simple_ci/build.toml" with entries like:
